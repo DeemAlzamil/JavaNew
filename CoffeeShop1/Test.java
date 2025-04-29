@@ -1,16 +1,25 @@
 package CoffeeShop1;
 
+import java.io.File;
 import java.util.Scanner; 
  
 public class Test {// Test class for the Coffee Shop ordering system. 
- 
+    
+    // Creating a coffee shop instance with capacity for 20 orders and 20 items 
+   static CoffeeShop ourCoffee = new CoffeeShop("Our Coffee", 20, 20); 
+
 public static void main(String[] args) { 
+
+    File Ite=new File("Items.dat");
+    File orde =new File("Orders.dat");
+
+    if(Ite.exists() && orde.exists()){
+        ourCoffee.readAllInfo();
+    }
  
 int Id = 100;// Starting order ID for customers, incremented with each new order 
 boolean customerHaveOneItem = false; 
  
-// Creating a coffee shop instance with capacity for 20 orders and 20 items 
-CoffeeShop ourCoffee = new CoffeeShop("Our Coffee", 20, 20); 
  
 // Creating menu items (cakes and drinks) to be added to the shop's menu 
 Cake K1 = new Cake("Cheesecake", 15.0, "Blueberry", false); 
@@ -259,6 +268,7 @@ System.out.println("Invalid choice! Please enter a number between 1 and 5.");
  
 } while (choice != 5);// end of main menu loop, The loop continues until the user chooses to exit 
  
+ourCoffee.savaAllInfo();
 } 
  
 } 

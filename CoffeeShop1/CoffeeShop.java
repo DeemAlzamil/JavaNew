@@ -146,9 +146,23 @@ public void readAllInfo(){
         FileInputStream ff=new FileInputStream(Iter);
         ObjectInputStream in=new ObjectInputStream(ff);
 
-        somthing Related to node=(Node) in.readObject();*/
+        somthing Related to node=(Node) in.readObject();
+        in.close(); */
+
+        File ord =new File("Orders.dat");
+        FileInputStream ff2=new FileInputStream(ord);
+        ObjectInputStream in2=new ObjectInputStream(ff2);
+
+        Orders=(Orders[]) in2.readObject();
+        in2.close();
+
+        System.out.println("All data in files are loaded");
         
-    } catch (Exception e) {
+    } catch(ClassNotFoundException ex){
+        System.out.println(ex.toString());}
+        catch(IOException e){
+            System.out.println(e.toString());
+        }
     }
 }
 
