@@ -1,5 +1,5 @@
  
- package CoffeeShop1; 
+
  
  public class Tea extends Drink {//The Tea class represents a Tea item in the coffee shop It is a subclass of Drink  
 	 

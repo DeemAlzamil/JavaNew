@@ -1,10 +1,5 @@
-package CoffeeShop1;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.*;
+
+import java.io.*;
 public class CoffeeShop {  
 
 
@@ -142,18 +137,18 @@ public void savaAllInfo(){
 
 public void readAllInfo(){
     try {
-        /*File Iter =new File("Items.dat");
-        FileInputStream ff=new FileInputStream(Iter);
+        /*File Ite =new File("Items.dat");
+        FileInputStream ff=new FileInputStream(Ite);
         ObjectInputStream in=new ObjectInputStream(ff);
 
         somthing Related to node=(Node) in.readObject();
         in.close(); */
 
-        File ord =new File("Orders.dat");
-        FileInputStream ff2=new FileInputStream(ord);
+        File orde =new File("Orders.dat");
+        FileInputStream ff2=new FileInputStream(orde);
         ObjectInputStream in2=new ObjectInputStream(ff2);
 
-        Orders=(Orders[]) in2.readObject();
+        orders=(Order[]) in2.readObject();
         in2.close();
 
         System.out.println("All data in files are loaded");
@@ -166,4 +161,4 @@ public void readAllInfo(){
     }
 }
 
-} 
+

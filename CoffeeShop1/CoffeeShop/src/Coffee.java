@@ -1,4 +1,4 @@
-package CoffeeShop1;
+
 public class Coffee extends Drink {//The Coffee class represents a Coffee item in the coffee shop It is a subclass of Drink  
 	 
 private double NumOfEspShots;// The number of espresso shots in the coffee 
