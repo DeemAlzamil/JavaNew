@@ -1,5 +1,8 @@
 package CoffeeShop1;
-public abstract class Item { 
+
+import java.io.*;
+
+public abstract class Item implements Serializable { 
 	 
 protected String Name; // Name of the item 
  

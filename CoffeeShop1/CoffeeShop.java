@@ -1,5 +1,10 @@
 package CoffeeShop1;
-
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.*;
 public class CoffeeShop {  
 
 
@@ -111,4 +116,40 @@ return orders[i];
 }  
 return null;  
 }  
+
+public void savaAllInfo(){
+
+    try{
+        /*File Ite=new File("Items.dat");
+        FileOutputStream fos=new FileOutputStream(Ite);
+        ObjectOutputStream oos=new ObjectOutputStream(fos);
+
+        oos.writeObject(\\مدري شالمفروض هنا اعتقد شي من الداتا ستركتشر);
+        oos.close();*/
+
+        File orde =new File("Orders.dat");
+        FileOutputStream fos2=new FileOutputStream(orde);
+        ObjectOutputStream oos2=new ObjectOutputStream(fos2);
+
+        oos2.writeObject(orders);//write array all at once
+        oos2.close();
+     }
+     catch(IOException e){
+        System.err.println(e.toString());
+     }
+
+}
+
+public void readAllInfo(){
+    try {
+        /*File Iter =new File("Items.dat");
+        FileInputStream ff=new FileInputStream(Iter);
+        ObjectInputStream in=new ObjectInputStream(ff);
+
+        somthing Related to node=(Node) in.readObject();*/
+        
+    } catch (Exception e) {
+    }
+}
+
 } 

@@ -1,8 +1,8 @@
 package CoffeeShop1; 
-import static java.lang.Character.*; 
+import java.io.Serializable;
 import java.util.Scanner; 
  
-public class Order { 
+public class Order implements Serializable { 
 public static Scanner input = new Scanner(System.in); 
 // Scanner for user input used in methods 
  
