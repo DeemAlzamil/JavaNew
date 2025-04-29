@@ -126,6 +126,7 @@ public void savaAllInfo(){
         FileOutputStream fos2=new FileOutputStream(orde);
         ObjectOutputStream oos2=new ObjectOutputStream(fos2);
 
+        oos2.writeInt(NumOfOrder);
         oos2.writeObject(orders);//write array all at once
         oos2.close();
      }
@@ -148,6 +149,7 @@ public void readAllInfo(){
         FileInputStream ff2=new FileInputStream(orde);
         ObjectInputStream in2=new ObjectInputStream(ff2);
 
+        NumOfOrder = in2.readInt();
         orders=(Order[]) in2.readObject();
         in2.close();
 

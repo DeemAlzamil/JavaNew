@@ -16,41 +16,43 @@ public static void main(String[] args) {
     if(Ite.exists() && orde.exists()){
         ourCoffee.readAllInfo();
     }
+    else{
  
-int Id = 100;// Starting order ID for customers, incremented with each new order 
-boolean customerHaveOneItem = false; 
- 
- 
-// Creating menu items (cakes and drinks) to be added to the shop's menu 
-Cake K1 = new Cake("Cheesecake", 15.0, "Blueberry", false); 
- 
-Cake K2 = new Cake("Cupcake", 7.0, "Vanilla", false); 
- 
-Coffee C1 = new Coffee("Cappuccino", 12.0, true, true, 'S'); 
- 
-Coffee C2 = new Coffee("Iced Coffee", 16.0, false, false, 'S'); 
- 
-Tea T1 = new Tea("Green Tea", 11.0, true, false, "Green", 'S'); 
- 
-Tea T2 = new Tea("Cold Tea Sweet Mango", 17.0, false, false, "Fruit", 'S'); 
- 
-// Adding items to the coffee shop's menu 
-ourCoffee.addItem(K1); 
- 
-ourCoffee.addItem(K2); 
- 
-ourCoffee.addItem(C1); 
- 
-ourCoffee.addItem(C2); 
- 
-ourCoffee.addItem(T1); 
- 
-ourCoffee.addItem(T2); 
- 
-Scanner input=new Scanner (System.in) ;
-int choice;// Stores the user's menu selection 
- 
-// Main menu loop that runs until the user chooses to exit 
+        
+        
+        // Creating menu items (cakes and drinks) to be added to the shop's menu 
+        Cake K1 = new Cake("Cheesecake", 15.0, "Blueberry", false); 
+        
+        Cake K2 = new Cake("Cupcake", 7.0, "Vanilla", false); 
+        
+        Coffee C1 = new Coffee("Cappuccino", 12.0, true, true, 'S'); 
+        
+        Coffee C2 = new Coffee("Iced Coffee", 16.0, false, false, 'S'); 
+        
+        Tea T1 = new Tea("Green Tea", 11.0, true, false, "Green", 'S'); 
+        
+        Tea T2 = new Tea("Cold Tea Sweet Mango", 17.0, false, false, "Fruit", 'S'); 
+        
+        // Adding items to the coffee shop's menu 
+        ourCoffee.addItem(K1); 
+        
+        ourCoffee.addItem(K2); 
+        
+        ourCoffee.addItem(C1); 
+        
+        ourCoffee.addItem(C2); 
+        
+        ourCoffee.addItem(T1); 
+        
+        ourCoffee.addItem(T2); }//end of else
+        
+        int Id = 100;// Starting order ID for customers, incremented with each new order 
+        boolean customerHaveOneItem = false; 
+
+        Scanner input=new Scanner (System.in) ;
+        int choice;// Stores the user's menu selection 
+        
+        // Main menu loop that runs until the user chooses to exit 
 do { 
  
 // Displaying the main menu options 
@@ -84,9 +86,25 @@ System.out.println("Enter Your Name: ");
  
 String Name = input.next(); 
  
+
+String Number;
+while(true){
+    try{
 System.out.println("Enter Your Number: "); 
- 
-String Number = input.next(); 
+ Number = input.next(); 
+if(Number.length()!=10 || !Number.startsWith("05"))
+throw new invalidMobileNum("Please enter a valid number that starts with 05 and contains exactly 10 digits");
+
+long num=Long.parseLong(Number);
+break;
+    }
+    catch(NumberFormatException e){
+        System.out.println("Phone number should contain only numbers. Try again.");
+    }
+    catch(invalidMobileNum ex){
+        System.out.println(ex.getMessage());
+    }
+}//end of while
  
 // Create a new order for the customer 
 Order CoustomerOrder = new Order(Name, Number, Id); 
@@ -271,4 +289,4 @@ System.out.println("Invalid choice! Please enter a number between 1 and 5.");
 ourCoffee.savaAllInfo();
 } 
  
-} ///تتتتتت
+} 
