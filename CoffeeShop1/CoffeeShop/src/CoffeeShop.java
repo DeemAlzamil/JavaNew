@@ -1,6 +1,6 @@
 
 import java.io.*;
-public class CoffeeShop {  
+public class CoffeeShop implements InputOtpuInterface {  
 
 
 private String ShopName; // Name of the coffee shop 
