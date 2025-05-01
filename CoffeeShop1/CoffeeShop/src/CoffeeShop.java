@@ -214,12 +214,12 @@ return null;
 public void savaAllInfo(){
 
     try{
-        /*File Ite=new File("Items.dat");
+        File Ite=new File("Items.dat");
         FileOutputStream fos=new FileOutputStream(Ite);
         ObjectOutputStream oos=new ObjectOutputStream(fos);
 
-        oos.writeObject(\\مدري شالمفروض هنا اعتقد شي من الداتا ستركتشر);
-        oos.close();*/
+        oos.writeObject(headItem);
+        oos.close();
 
         File orde =new File("Orders.dat");
         FileOutputStream fos2=new FileOutputStream(orde);
@@ -237,12 +237,12 @@ public void savaAllInfo(){
 
 public void readAllInfo(){
     try {
-        /*File Ite =new File("Items.dat");
+        File Ite =new File("Items.dat");
         FileInputStream ff=new FileInputStream(Ite);
         ObjectInputStream in=new ObjectInputStream(ff);
 
-        somthing Related to node=(Node) in.readObject();
-        in.close(); */
+        headItem=(Node) in.readObject();
+        in.close(); 
 
         File orde =new File("Orders.dat");
         FileInputStream ff2=new FileInputStream(orde);
