@@ -1,4 +1,4 @@
-<<<<<<< HEAD:CoffeeShop1/CoffeeShop/src/AdminFram.java
+/*<<<<<<< HEAD:CoffeeShop1/CoffeeShop/src/AdminFram.java
 import javax.swing.*; import java.awt.*; import java.awt.event.*; import java.io.* ;  import java.util.* ;  
  public class AdminFram extends JFrame implements ActionListener { 
  
@@ -206,3 +206,4 @@ TextArea1.setText("");
 }// end actionPerformed
 }
 >>>>>>> b95eddd711d9a714a1575739b087167554db40bc:CoffeeShop1/CoffeeShop/src/AdminFrame.java
+*/

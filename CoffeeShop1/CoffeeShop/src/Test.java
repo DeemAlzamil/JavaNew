@@ -1,6 +1,6 @@
 
 
-import java.io.File;
+/*import java.io.File;
 import java.util.Scanner; 
  
 public class Test {// Test class for the Coffee Shop ordering system. 
@@ -289,4 +289,38 @@ System.out.println("Invalid choice! Please enter a number between 1 and 5.");
 ourCoffee.savaAllInfo();
 } 
  
-} 
+} */
+import java.io.File;
+
+public class Test {
+    // نحتفظ بالكوفي شوب كمتغير ثابت عشان نوصله من أي Frame
+    public static CoffeeShop ourCoffee = new CoffeeShop("Our Coffee", 20);
+
+    public static void main(String[] args) {
+        File itemFile = new File("Items.dat");
+        File orderFile = new File("Orders.dat");
+
+        if (itemFile.exists() && orderFile.exists()) {
+            ourCoffee.readAllInfo();
+        } else {
+            // إضافة العناصر الافتراضية إذا ما فيه ملفات محفوظة
+            Cake K1 = new Cake("Cheesecake", 15.0, "Blueberry", false);
+            Cake K2 = new Cake("Cupcake", 7.0, "Vanilla", false);
+            Coffee C1 = new Coffee("Cappuccino", 12.0, true, true, 'S');
+            Coffee C2 = new Coffee("Iced Coffee", 16.0, false, false, 'S');
+            Tea T1 = new Tea("Green Tea", 11.0, true, false, "Green", 'S');
+            Tea T2 = new Tea("Cold Tea Sweet Mango", 17.0, false, false, "Fruit", 'S');
+
+            ourCoffee.addItem(K1);
+            ourCoffee.addItem(K2);
+            ourCoffee.addItem(C1);
+            ourCoffee.addItem(C2);
+            ourCoffee.addItem(T1);
+            ourCoffee.addItem(T2);
+        }
+
+        // تشغيل الواجهة الرسومية
+        FirstFrame firstFrame = new FirstFrame();
+        firstFrame.setVisible(true);
+    }
+}

@@ -1,3 +1,4 @@
+/*
 //CustomerFrame 
  import javax.swing.*; import java.awt.*; import java.awt.event.*; import java.io.* ;  import java.util.* ;  
  public class CustomerFrame extends JFrame implements ActionListener {  
@@ -13,7 +14,7 @@ JTextField text1 , text2 , text3 , text4 ;
  Container contentPane ; 
    
 // constructor public CustomerFrame(){ contentPane = getContentPane( ); contentPane.setLayout(null); 
- setTitle     ("customer menu system"); setLocation  (200, 100); setResizable (false); setSize(800, 550); this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); 
+ setTitle("customer menu system"); setLocation  (200, 100); setResizable (false); setSize(800, 550); this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); 
 // jLabelTitle; jLabelTitle = new JLabel("Customer menu : ");  jLabelTitle.setFont(new java.awt.Font("Segoe UI", 2, 26)); // 2= italic               jLabelTitle. setBounds(50 , 20 , 500 , 50 ) ;  contentPane.add(jLabelTitle ); 
  
 // panel reservation panel1 = new JPanel(); panel1.setBorder(BorderFactory.createTitledBorder("Reservation")); panel1.setBounds(20 , 80 , 350 , 370 ) ; panel1.setLayout(null); contentPane.add(panel1 ); 
@@ -184,3 +185,4 @@ Suite[] list3 = TestHotel.hotel.getAllSuite(num);
 }// end actionPerformed 
  
 }// end class  
+*/

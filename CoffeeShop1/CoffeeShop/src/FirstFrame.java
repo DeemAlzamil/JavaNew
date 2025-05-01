@@ -1,4 +1,4 @@
-import javax.swing.*;
+/*import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.* ;
@@ -76,4 +76,39 @@ JOptionPane.showMessageDialog(this, "save all data is done. \n good by.");
  System.exit(0);
 }
 }// end actionPerformed
+}*/
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class FirstFrame extends JFrame {
+    private JTextField itemNameField;
+    private JButton searchButton;
+
+    public FirstFrame() {
+        setTitle("Coffee Shop - Search Item");
+        setSize(400, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Enter item name:");
+        itemNameField = new JTextField(20);
+        searchButton = new JButton("Search");
+
+        add(label);
+        add(itemNameField);
+        add(searchButton);
+
+        searchButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String name = itemNameField.getText();
+                Item found = Test.ourCoffee.searchItem(name);
+                if (found != null) {
+                    new ResultFrame(found.toString());
+                } else {
+                    new ResultFrame("Item not found.");
+                }
+            }
+        });
+    }
 }
