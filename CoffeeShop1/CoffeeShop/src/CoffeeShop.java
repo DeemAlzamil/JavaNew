@@ -3,34 +3,65 @@ import java.io.*;
 public class CoffeeShop implements InputOtpuInterface {  
 
 
+Node headItem ;
+
 private String ShopName; // Name of the coffee shop 
 private int NumOfOrder; // Number of current orders 
 private Order orders[]; // Array to store orders 
-private Item Items[]; // Array to store available items 
-private int NumOfItems; // Number of items in the shop 
-
+//private Item Items[]; // Array to store available items 
+//private int NumOfItems; // Number of items in the shop 
+int maxNumOfItem = 20 ;
 
 //Constructor to initialize the coffee shop with name, order size, and item size 
-public CoffeeShop(String name, int Ordersize, int ItemSize) {  
+public CoffeeShop(String name, int Ordersize) {  
 ShopName = name;  
 NumOfOrder = 0;  
-NumOfItems = 0;  
+//NumOfItems = 0;  
 orders = new Order[Ordersize];  
-Items = new Item[ItemSize];  
+//Items = new Item[ItemSize];  
+headItem = null ;
 }  
 
+
+public int CountItem()
+{
+if( headItem == null )
+return 0 ;
+int count =0 ;
+Node current = headItem ;
+while(current != null )
+{
+count++ ;
+current = current.getNext();
+}
+return count ;
+}
+
+
+
+
 //Adds an item to the shop 
-public boolean addItem(Item item) {  
+/*public boolean addItem(Item item) {  
 if (NumOfItems < Items.length) {  
 Items[NumOfItems++] = item;  
 return true;  
 }  
 return false;  
-}  
+}  */
+
+public boolean addItem(Item item ){
+if( CountItem() < maxNumOfItem ){ // aggregation
+Node n = new Node(item) ;
+n.setNext(headItem);
+headItem = n ;
+return true;
+}
+return false;
+}
 
 
 //Deletes an item from the shop based on its name 
-public boolean deleteItem(String name) {  
+/*public boolean deleteItem(String name) {  
 for (int i = 0; i < NumOfItems; i++) {  
 if (Items[i].getName().equalsIgnoreCase(name)) {  
 Items[i] = Items[NumOfItems - 1]; // Replace with last item 
@@ -40,7 +71,33 @@ return true;
 }  
 }  
 return false;  
-}  
+}  */
+
+public boolean deleteItem(String name) {
+    if (headItem == null)
+        return false;
+
+    if (headItem.getData().getName().equalsIgnoreCase(name)) {
+        headItem = headItem.getNext();
+        return true;
+    }
+    Node prev = headItem;
+    Node current = headItem.getNext();
+
+    while (current != null) {
+        if (current.getData().getName().equalsIgnoreCase(name)) {
+            prev.setNext(current.getNext());
+            return true;
+        } else {
+            prev = current;
+            current = current.getNext();
+        }
+    }
+
+    return false;
+}
+
+
 
 
 //Adds a new order to the shop 
@@ -65,15 +122,43 @@ return false;
 
 
 //Displays the menu of available items with customization options 
-public void displayMenu() {  
+/*public void displayMenu() {  
 for (int i = 0; i < NumOfItems; i++)  
-System.out.println(Items[i].toString());  
-
-
+System.out.println(Items[i].toString()); 
 System.out.println("You can upgrade to Medium for an extra 1.5 SAR or Large size for an extra 2.5 SAR.");  
 System.out.println("You can add a candle for 1 SAR.");  
 System.out.println("You can add milk for 1 SAR.");  
-}  
+}  */
+
+public void displayMenu() {
+    Node current = headItem;
+
+    while (current != null) {
+        System.out.println(current.getData().toString());
+        current = current.getNext();
+    }
+
+    System.out.println("You can upgrade to Medium for an extra 1.5 SAR or Large size for an extra 2.5 SAR.");
+    System.out.println("You can add a candle for 1 SAR.");
+    System.out.println("You can add milk for 1 SAR.");
+}
+
+public Item searchItem(String name ){
+ if( headItem == null )
+ return null ;
+
+Node current = headItem ;
+while(current != null ) {
+if( current.getData().getName().equalsIgnoreCase(name))
+return current.getData() ;
+
+current = current.getNext(); }
+return null ;
+}
+
+
+
+ 
 
 
 //Returns information about the coffee shop and its orders 
@@ -88,19 +173,33 @@ return "CoffeeShop NumOfOrder: " + NumOfOrder + "\nOur Orders:\n" + ourOrders;
 
 //Getters and Setters 
 public int getNumOfOrder() { return NumOfOrder; }  
-public int getNumOfItems() { return NumOfItems; }  
+//public int getNumOfItems() { return NumOfItems; }  
 public void setNumOfOrder(int numOfOrder) { NumOfOrder = numOfOrder; }  
-public void setNumOfItems(int numOfItems) { NumOfItems = numOfItems; }  
+//public void setNumOfItems(int numOfItems) { NumOfItems = numOfItems; }  
 
 
 //Searches for an item by name 
-public Item WhatItem(String name) {  
+/*public Item WhatItem(String name) {  
 for (int i = 0; i < NumOfItems; i++) {  
 if (Items[i].getName().equalsIgnoreCase(name))  
 return Items[i];  
 }  
 return null;  
-}  
+} */ 
+
+public Item WhatItem(String name) {
+    Node current = headItem;
+
+    while (current != null) {
+        if (current.getData().getName().equalsIgnoreCase(name)) {
+            return current.getData();
+        }
+        current = current.getNext();
+    }
+
+    return null;  
+}
+
 
 
 //Searches for an order by ID 

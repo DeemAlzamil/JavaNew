@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Test {// Test class for the Coffee Shop ordering system. 
     
     // Creating a coffee shop instance with capacity for 20 orders and 20 items 
-   static CoffeeShop ourCoffee = new CoffeeShop("Our Coffee", 20, 20); 
+   static CoffeeShop ourCoffee = new CoffeeShop("Our Coffee", 20) ;
 
 public static void main(String[] args) { 
 
