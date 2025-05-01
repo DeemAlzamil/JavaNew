@@ -77,9 +77,9 @@ JOptionPane.showMessageDialog(this, "save all data is done. \n good by.");
 }
 }// end actionPerformed
 }*/
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class FirstFrame extends JFrame {
     private JTextField itemNameField;
@@ -106,9 +106,10 @@ public class FirstFrame extends JFrame {
                 if (found != null) {
                     new ResultFrame(found.toString());
                 } else {
-                    new ResultFrame("Item not found.");
+                    new ResultFrame("Item NOT not found.");
                 }
             }
         });
     }
 }
+//hi
