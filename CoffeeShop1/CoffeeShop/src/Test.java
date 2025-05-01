@@ -17,9 +17,6 @@ public static void main(String[] args) {
         ourCoffee.readAllInfo();
     }
     else{
- 
-        
-        
         // Creating menu items (cakes and drinks) to be added to the shop's menu 
         Cake K1 = new Cake("Cheesecake", 15.0, "Blueberry", false); 
         
@@ -45,6 +42,9 @@ public static void main(String[] args) {
         ourCoffee.addItem(T1); 
         
         ourCoffee.addItem(T2); }//end of else
+
+        FirstFrame fram=new FirstFrame();
+        fram.setVisible(true);
         
         int Id = 100;// Starting order ID for customers, incremented with each new order 
         boolean customerHaveOneItem = false; 
