@@ -16,7 +16,11 @@ Container contentPane ;
  
 // constructor public AdminFram(){ contentPane = getContentPane( ); contentPane.setLayout(null); 
  
-setTitle     ("Hotel Reservation system"); setLocation  (200, 150); setResizable (false); setSize(700, 500); this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // jLabelTitle; jLabelTitle = new JLabel("Admin menu : ");  jLabelTitle.setFont(new java.awt.Font("Segoe UI", 2, 26)); // 2= italic               jLabelTitle. setBounds(50 , 20 , 500 , 50 ) ;  contentPane.add(jLabelTitle ); 
+setTitle("Hotel Reservation system"); 
+setLocation  (200, 150); 
+setResizable (false); 
+setSize(700, 500); 
+this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE); // jLabelTitle; jLabelTitle = new JLabel("Admin menu : ");  jLabelTitle.setFont(new java.awt.Font("Segoe UI", 2, 26)); // 2= italic               jLabelTitle. setBounds(50 , 20 , 500 , 50 ) ;  contentPane.add(jLabelTitle ); 
  
 // jLabel2; jLabel2 = new JLabel("Enter room number: "); jLabel2. setBounds(50 , 90 , 150 , 20 ) ;  contentPane.add(jLabel2 ); 
  
