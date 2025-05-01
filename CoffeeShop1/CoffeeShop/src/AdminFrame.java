@@ -3,7 +3,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.* ;
 import java.util.* ;
-public class AdminFram extends JFrame implements ActionListener {
+
+public class AdminFrame extends JFrame implements ActionListener {
 JButton jButtonDeletRoom;
 JButton jButtonBack;
 JButton jButtonExit;
